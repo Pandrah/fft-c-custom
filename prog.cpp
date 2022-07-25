@@ -104,7 +104,7 @@ int main(){
 
 	//showData(&spectre);
 
-	filter(&spectre,5,Fe,LOW_PASS); //On décide de filtrer à 3 HZ en mode passe bas (filtre parfait donc gain = -inf dB)
+	filter(&spectre,5,Fe,LOW_PASS); //On décide de filtrer à 5 HZ en mode passe bas (filtre parfait donc gain = -inf dB)
 	//On rappelle qu'on peut pas filtrer au delà de Fe/2 
 
 	vector<double> abs2=getAbs(&spectre); // spectre d'amplitude filtré
