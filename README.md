@@ -73,8 +73,5 @@ you may find a courbes.py file (courbes = curves in french), this is a little py
 The `c++` methods to create those files automatically is written in **prog.cpp** (so is the methods which prints the results on the command prompt)
 
 Example :
-![plot](https://git.enib.fr/a9mevel/fft-c/-/blob/main/exemple.png)
-
-
-
-<img src="example.png"/>
+![alt text](https://git.enib.fr/a9mevel/fft-c/-/blob/main/exemple.png)
+![image](https://git.enib.fr/a9mevel/fft-c/-/blob/main/exemple.png)
