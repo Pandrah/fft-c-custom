@@ -122,7 +122,7 @@ you create a complex number like this :
 `complex numberOne(re,im,abs,arg);`
 And if you don't specify either of carthesian coordonates or polar coordonates, the missing informations are auto-adjusted :
 `complex numberTwo(1,1,0,0);` automatically set `numberTwo.abs=sqrt(2)` and `numberTwo.arg=pi/4`
-`complex numberTwo(0,0,sqrt(2),pi/4);` automatically set `numberTwo.re=1` and `numberTwo.im=`
+`complex numberTwo(0,0,sqrt(2),pi/4);` automatically set `numberTwo.re=1` and `numberTwo.im=1`
 You can perform operations on thoses number such as :
 
 ```c++
@@ -133,7 +133,7 @@ complex n3 = numberOne / numberTwo;
 ```
 ## Fast Fourier Transform
 
-The operation works with real numbers : `real numbers \rightarrow complex numbers`
+The operation works with real numbers : `real numbers $\rightarrow$ complex numbers`
 
 ```c++
 std::vector<double> v={0,0,0,1,1,1,0,0,0,1,1,1}; //in the case of a rectangular signal
@@ -153,7 +153,7 @@ std::vector<complex>filteredSpectre = filter(&spectre,Fc,Fe,LOW_PASS);
 ```
 `Fc` is the cut frequency
 `Fe` the sampling frequency
-`HIGH_PASS ` and `LOW_PASS` are the two directives which allow this filter doing his job
+`HIGH_PASS` and `LOW_PASS` are the two directives which allow this filter doing his job
 
 ### Reverse Fast Fourier Transform (IFFT)
 All you have to do is :
@@ -168,4 +168,4 @@ The `c++` methods to create those files automatically is written in **prog.cpp**
 
 Example :
 
-<image src="example.png">
+<img src="example.png">
