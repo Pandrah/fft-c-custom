@@ -168,4 +168,4 @@ The `c++` methods to create those files automatically is written in **prog.cpp**
 
 Example :
 
-<img src="example.png">
+<img src="example.png"/>
