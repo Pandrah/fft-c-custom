@@ -104,6 +104,7 @@ void filtering(vector<complex>*spectre,unsigned int i, int mode){ //est appelée
 
 		for(i;i<spectre->size();i++){
 			reset(&(*spectre)[i]);
+		//	reset(&(*spectre)[spectre->size()-i-1]);
 		}
 			
 		break;

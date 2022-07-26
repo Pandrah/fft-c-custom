@@ -104,7 +104,7 @@ int main(){
 
 	//showData(&spectre);
 
-	filter(&spectre,5,Fe,LOW_PASS); //On décide de filtrer à 5 HZ en mode passe bas (filtre parfait donc gain = -inf dB)
+	filter(&spectre,3,Fe,LOW_PASS); //On décide de filtrer à 5 HZ en mode passe bas (filtre parfait donc gain = -inf dB)
 	//On rappelle qu'on peut pas filtrer au delà de Fe/2 
 
 	vector<double> abs2=getAbs(&spectre); // spectre d'amplitude filtré
@@ -117,7 +117,7 @@ int main(){
 	createFile("textes/time_Signal.txt",&signal);
 	createFile("textes/Spectre_Signal.txt",&abs);
 	createFile("textes/recomposed_Signal.txt",&Rec); // ON RAPPELLE CELUI LÀ C'EST LE SIGNAL TEMPOREL RECOMPOSÉ MAIS FILTRÉ (voir ligne 107)
-	//createFile("textes/spectre_Filtre.txt",&abs2);
+	createFile("textes/spectre_Filtre.txt",&abs2);
 	//createFile("textes/spectre_FiltreA.txt",&arg2);
 	//createFile("textes/arguments.txt",&arg);
 
