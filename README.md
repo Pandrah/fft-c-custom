@@ -73,5 +73,5 @@ you may find a courbes.py file (courbes = curves in french), this is a little py
 The `c++` methods to create those files automatically is written in **prog.cpp** (so is the methods which prints the results on the command prompt)
 
 Example :
-![Example][example.png]
+![Example](example.png)
 <img src="example.png"/>
