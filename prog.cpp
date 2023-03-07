@@ -9,6 +9,10 @@
 
 using namespace std;
 
+#define SINUS
+#define CARRE
+#define TRIANGLE
+
 //~~~~~~~~~Une fonction qui affiche les valeurs dans le terminal~~~~~~~~~~~~~
 template<typename d>
 void showData(vector<d> *signal){
@@ -19,6 +23,8 @@ void showData(vector<d> *signal){
 	}
 	cout<<endl;
 }
+
+
 //~~~~~~~~La fonction qui crée un .txt avec les valeurs dedans pour les afficher avec matplotlib~~~~~~~~~
 template<typename info>
 void createFile(string path,vector <info> *inf){
@@ -55,43 +61,46 @@ int main(){
 	double Fe = 100; //j'ai vraiment besoin d'expliquer ?
 	double Te = 1/Fe;
 
-	int Tf=2; //Fenêtre temporelle d'étude
+	int Tf=5; //Fenêtre temporelle d'étude
 
 	double coef_dir=1; //pour le triangle
 
 	double i=0;
 
 	//~~~~~~~~~~~~~~~~signal sinusoidal~~~~~~~~~~~~~~ -> Amplitudes au pif
-/*	for(double i =0; i < Tf; i+=Te){
-		signal.push_back(2*sin(2*pi*freq*i));
+#ifdef SINUS
+	for(double i =0; i < Tf; i+=Te){
+		signal.push_back(2*sin(2*pi*freq*i)
 						+0.5*sin(2*pi*freq2*i)
 						+0.3*sin(2*pi*freq3*i)
 						+0.2*sin(2*pi*freq4*i)
 						+0.1*sin(2*pi*freq5*i)
-						0.07*sin(2*pi*freq6*i));
-*/
-//	}
+						+0.07*sin(2*pi*freq6*i));
+	}
 
-///*
+#endif
+
+
 	//~~~~~~~~~~~~~~~~signal carré~~~~~~~~~~~~~~~~~
-	for(i; i< 5*Tf;i+=Te){
+#ifdef CARRE
+	for(i = 0; i< Tf;i+=Te){
 
 		((int)i%2==0?signal.push_back(1):signal.push_back(-1));
 		
 	}
-//*/	//~~~~~~~~~~~~~~~signal triangle~~~~~~~~~~~~~~ 
-/*	
+#endif
+
+	//~~~~~~~~~~~~~~~signal triangle~~~~~~~~~~~~~~ 
+#ifdef TRIANGLE
 	signal.push_back(-Te);//tkt -> il faut remplir le signal avec au moins un élément avant de procéder à la boucle for
 
-	for(i; i<2*Tf;i+=Te){
+	for(i = 0; i<Tf;i+=Te){
 
 		double elem=signal[signal.size()-1];
 		((int)i%2<1 ? elem+=Te*coef_dir : elem-=Te*coef_dir ); //modifier le 10 et le 5 pour ajuster la période et le tps à l'état haut en fonction de Fe et Tf
 		signal.push_back(elem);
 	}
-*/
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#endif
 
 	//cout << "\n~~~~~~~~~~Signal in time domain ~~~~~~~~"; 
 	//showData(&signal);
