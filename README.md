@@ -10,40 +10,40 @@ We've set up a example file **prog.cpp** in which you can find such interesting 
 #include "fft.h"
 ```
 
-### Use of complex number
+### Use of cplx number
 
-Since Fourier transform deals with complex numbers, we've also added a `complex` structure.
-`typedef struct complex;`
+Since Fourier transform deals with cplx numbers, we've also added a `complex` structure.
+`typedef struct cplx;`
 
-each complex numbers is defined with :
+each cplx numbers is defined with :
 
 ```c++
-complex.re; (double)
-complex.im; (double)
-complex.abs;(double)
-complex.arg;(double)
+cplx.re; (double)
+cplx.im; (double)
+cplx.abs;(double)
+cplx.arg;(double)
 ```
 
-you create a complex number like this :
-`complex numberOne(re,im,abs,arg);`
+you create a cplx number like this :
+`cplx numberOne(re,im,abs,arg);`
 And if you don't specify either of carthesian coordonates or polar coordonates, the missing informations are auto-adjusted :
-`complex numberTwo(1,1,0,0);` automatically set `numberTwo.abs=sqrt(2)` and `numberTwo.arg=pi/4`
-`complex numberTwo(0,0,sqrt(2),pi/4);` automatically set `numberTwo.re=1` and `numberTwo.im=1`
+`cplx numberTwo(1,1,0,0);` automatically set `numberTwo.abs=sqrt(2)` and `numberTwo.arg=pi/4`
+`cplx numberTwo(0,0,sqrt(2),pi/4);` automatically set `numberTwo.re=1` and `numberTwo.im=1`
 You can perform operations on thoses number such as :
 
 ```c++
-complex n3 = numberOne + numberTwo;
-complex n3 = numberOne - numberTwo;
-complex n3 = numberOne * numberTwo;
-complex n3 = numberOne / numberTwo;
+cplx n3 = numberOne + numberTwo;
+cplx n3 = numberOne - numberTwo;
+cplx n3 = numberOne * numberTwo;
+cplx n3 = numberOne / numberTwo;
 ```
 ## Fast Fourier Transform
 
-The operation works with real numbers : `real numbers $\longrightarrow$ complex numbers`
+The operation works with real numbers : `real numbers $\longrightarrow$ cplx numbers`
 
 ```c++
 std::vector<double> v={0,0,0,1,1,1,0,0,0,1,1,1}; //in the case of a rectangular signal
-std::vector<complex> spectre=fft(&v);
+std::vector<cplx> spectre=fft(&v);
 ```
 Once you've done that, you can extract amplitude spectre and argument spectre by doing:
 ```c++
@@ -55,7 +55,7 @@ std::vector<double>arg=getArg(&spectre);
 
 Basic filtering :
 ```c++
-std::vector<complex>filteredSpectre = filter(&spectre,Fc,Fe,LOW_PASS);
+std::vector<cplx>filteredSpectre = filter(&spectre,Fc,Fe,LOW_PASS);
 ```
 `Fc` is the cut frequency
 `Fe` the sampling frequency
