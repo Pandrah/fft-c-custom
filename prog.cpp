@@ -105,7 +105,7 @@ int main(){
 	//cout << "\n~~~~~~~~~~Signal in time domain ~~~~~~~~"; 
 	//showData(&signal);
 
-	vector <complex> spectre = fft(&signal);
+	vector <cplx> spectre = fft(&signal);
 	vector <double> abs = getAbs(&spectre); // Pour obtenir le spectre d'amplitude
 
 	//cout << "\n\n~~~~~~~~~Signal in frequencies domain ~~~~~~~~"; 

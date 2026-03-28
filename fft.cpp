@@ -3,26 +3,26 @@
 #include <algorithm>
 
 #include "fft.hpp"
-#include "complex.hpp"
+#include "cplx.hpp"
 
 using namespace std;
 
-vector<complex> fft(vector<double> * in){
+vector<cplx> fft(vector<double> * in){
 
-	vector<complex> out; 
+	vector<cplx> out; 
 
 	long unsigned int n = in->size();
 	double N = (double)n;
 		
 	for(unsigned int i=0; i < n; i++)
 	{
-		complex j; //par défaut à 0,0,0,0
+		cplx j; //par défaut à 0,0,0,0
 			/*TEST
 			vector<double>::iterator it = in->begin();
 
 			while(it != in->end() )
 			{
-				complex e;
+				cplx e;
 
 				e.abs = *it;
 				it++;
@@ -30,8 +30,8 @@ vector<complex> fft(vector<double> * in){
 			*///FIN TEST
 		for(unsigned int e = 0; e < n; e++){
 
-			complex k(0,0,1,-2*pi*(double)i*(double)e/N);	//la partie reelle et immaginaire est ajustée automatiquement
-			complex n((*in)[e],0,abs((*in)[e]),0);//pas de partie immaginaire
+			cplx k(0,0,1,-2*pi*(double)i*(double)e/N);	//la partie reelle et immaginaire est ajustée automatiquement
+			cplx n((*in)[e],0,abs((*in)[e]),0);//pas de partie immaginaire
 			n.arg = computeArg(n); // sécurité sur l'argument
 				//source : https://fr.wikipedia.org/wiki/Transformation_de_Fourier_rapide#Formulation_math%C3%A9matique
 			j = j+(k*n);			
@@ -42,11 +42,11 @@ vector<complex> fft(vector<double> * in){
 return out;
 }
 
-vector<double> getAbs(vector<complex> *spectre){
+vector<double> getAbs(vector<cplx> *spectre){
 
 	vector<double> amp;
 
-	for_each(begin(*spectre),end(*spectre), [&](complex elem){
+	for_each(begin(*spectre),end(*spectre), [&](cplx elem){
 		
 		amp.push_back(elem.abs);
 
@@ -55,11 +55,11 @@ vector<double> getAbs(vector<complex> *spectre){
 	return amp;
 }
 
-vector<double> getArg(vector<complex> *spectre){
+vector<double> getArg(vector<cplx> *spectre){
 
 	vector<double> arguments;
 
-	for_each(begin(*spectre),end(*spectre), [&](complex elem){ //std::for each
+	for_each(begin(*spectre),end(*spectre), [&](cplx elem){ //std::for each
 		
 		arguments.push_back(elem.arg);
 
@@ -69,18 +69,18 @@ vector<double> getArg(vector<complex> *spectre){
 
 }
 
-vector<double> ifft(vector<complex>* spectre){
+vector<double> ifft(vector<cplx>* spectre){
 
 	vector<double> signal;
 	double N = (double) spectre->size();
 
 	for(unsigned int i=0; i < spectre->size(); i++)
 	{	
-		complex j;
+		cplx j;
 
 		for(unsigned int e = 0; e < N; e++){
 
-			complex k(0,0,1,2*pi*(double)e*(double)i/N); //1*exp(2ijk/N)
+			cplx k(0,0,1,2*pi*(double)e*(double)i/N); //1*exp(2ijk/N)
 			j=j+((*spectre)[e]*k);
 			//source : https://www.rfwireless-world.com/Terminology/IFFT-vs-FFT.html
 		}
@@ -96,7 +96,7 @@ vector<double> ifft(vector<complex>* spectre){
 
 
 // ON RAPELLE QU'ON PEUT PAS FILTER AU DELÀ DE FE/2 SINON ÇA PLANTE
-void filtering(vector<complex>*spectre,unsigned int i, int mode){ //est appelée par filter
+void filtering(vector<cplx>*spectre,unsigned int i, int mode){ //est appelée par filter
 
 	switch(mode){
 
@@ -120,7 +120,7 @@ void filtering(vector<complex>*spectre,unsigned int i, int mode){ //est appelée
 	
 }
 
-void filter(vector<complex> * spectre,double Fc, double Fe, int mode){// reste à implémenter la sécurité pour Fc pas trop haut
+void filter(vector<cplx> * spectre,double Fc, double Fe, int mode){// reste à implémenter la sécurité pour Fc pas trop haut
 	double deltaF = Fe/(double)spectre->size();
 	unsigned int i = int(Fc/deltaF);
 	filtering(spectre,i,mode);

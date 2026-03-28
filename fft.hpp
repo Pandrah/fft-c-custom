@@ -1,7 +1,7 @@
 #ifndef FFT_HPP
 #define FFT_HPP
 
-#include "complex.hpp"
+#include "cplx.hpp"
 #include <vector>
 #include <algorithm>
 
@@ -10,13 +10,13 @@
 
 using namespace std;
 
-vector<complex> fft(vector<double> * signal);
-vector<double> getAbs(vector<complex> *spectre);
-vector<double> getArg(vector<complex>* spectre);
-vector<double> ifft(vector<complex>* spectre);
+vector<cplx> fft(vector<double> * signal);
+vector<double> getAbs(vector<cplx> *spectre);
+vector<double> getArg(vector<cplx>* spectre);
+vector<double> ifft(vector<cplx>* spectre);
 
-void filter(vector<complex> * spectre,double Fc,double Fe, int mode);
-void filtering(vector<complex>*spectre,int i, int mode);
+void filter(vector<cplx> * spectre,double Fc,double Fe, int mode);
+void filtering(vector<cplx>*spectre,int i, int mode);
 
 
 #endif
