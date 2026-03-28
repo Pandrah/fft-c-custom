@@ -10,8 +10,8 @@
 using namespace std;
 
 #define SINUS
-#define CARRE
-#define TRIANGLE
+//#define CARRE
+//#define TRIANGLE
 
 //~~~~~~~~~Une fonction qui affiche les valeurs dans le terminal~~~~~~~~~~~~~
 template<typename d>
@@ -70,12 +70,12 @@ int main(){
 	//~~~~~~~~~~~~~~~~signal sinusoidal~~~~~~~~~~~~~~ -> Amplitudes au pif
 #ifdef SINUS
 	for(double i =0; i < Tf; i+=Te){
-		signal.push_back(2*sin(2*pi*freq*i)
-						+0.5*sin(2*pi*freq2*i)
-						+0.3*sin(2*pi*freq3*i)
-						+0.2*sin(2*pi*freq4*i)
-						+0.1*sin(2*pi*freq5*i)
-						+0.07*sin(2*pi*freq6*i));
+		signal.push_back(2*sin(2*pi*freq*i));
+						//+0.5*sin(2*pi*freq2*i)
+						//+0.3*sin(2*pi*freq3*i)
+						//+0.2*sin(2*pi*freq4*i)
+						//+0.1*sin(2*pi*freq5*i)
+						//+0.07*sin(2*pi*freq6*i));
 	}
 
 #endif

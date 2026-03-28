@@ -53,7 +53,7 @@ std::vector<double>arg=getArg(&spectre);
 
 ### Filtering
 
-I am very proud to announce that I successfully implemented a perfect filter :
+Basic filtering :
 ```c++
 std::vector<complex>filteredSpectre = filter(&spectre,Fc,Fe,LOW_PASS);
 ```
