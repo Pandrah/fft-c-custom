@@ -1,4 +1,4 @@
-# FFT C++
+# FT C++
 
 ## Getting started
 
@@ -37,9 +37,9 @@ cplx n3 = numberOne - numberTwo;
 cplx n3 = numberOne * numberTwo;
 cplx n3 = numberOne / numberTwo;
 ```
-## Fast Fourier Transform
+## Fourier Transform
 
-The operation works with real numbers : `real numbers $\longrightarrow$ cplx numbers`
+The operation works with real numbers : `real numbers $\rightarrow$ cplx numbers`
 
 ```c++
 std::vector<double> v={0,0,0,1,1,1,0,0,0,1,1,1}; //in the case of a rectangular signal
