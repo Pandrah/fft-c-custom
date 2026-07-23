@@ -39,7 +39,7 @@ cplx n3 = numberOne / numberTwo;
 ```
 ## Fourier Transform
 
-The operation works with real numbers : real numbers $\rightarrow$ cplx numbers
+The operation works with real numbers : `real numbers` $\longrightarrow$ `cplx numbers`
 
 ```c++
 std::vector<double> v={0,0,0,1,1,1,0,0,0,1,1,1}; //in the case of a rectangular signal
